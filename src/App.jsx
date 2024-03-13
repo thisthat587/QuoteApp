@@ -60,7 +60,7 @@ function App() {
 
   return (
     <section class="px-4 lg:px-0">
-      <button class="bg-red-700 w-full h-10 text-red-700 mb-2 lg:hidden">upside</button>
+      <button class="bg-red-700 w-full h-10 text-red-700 mb-2 ">upside</button>
       <div class="flex flex-col-reverse lg:flex-row lg:items-center">
         <div class="w-full lg:w-1/2 lg:order-last">
           <div class="lg:my-0 lg:px-4">
@@ -88,11 +88,11 @@ function App() {
           )}
         </div>
       </div>
-      <button class="bg-red-700 w-full h-10 text-red-700 mt-2 lg:hidden">upside</button>
-      <button 
-      type="button" 
-      class="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-      onClick={getQuote}
+      <button class="bg-red-700 w-full h-10 text-red-700 mt-2 ">upside</button>
+      <button
+        type="button"
+        class="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        onClick={getQuote}
       >
         Next Quote
       </button>
