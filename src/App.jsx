@@ -96,7 +96,7 @@ function App() {
       <button className=' bg-red-700 w-full h-10 text-red-700 mt-2'>upside</button>
       <button
         type="button"
-        className="rounded-3xl bg-black mt-2  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="rounded-3xl bg-black mt-2 w-full  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         onClick={getQuote}
       >
         next Quote
