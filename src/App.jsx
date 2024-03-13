@@ -89,7 +89,11 @@ function App() {
         </div>
       </div>
       <button class="bg-red-700 w-full h-10 text-red-700 mt-2 lg:hidden">upside</button>
-      <button type="button" class="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+      <button 
+      type="button" 
+      class="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      onClick={getQuote}
+      >
         Next Quote
       </button>
     </section>
