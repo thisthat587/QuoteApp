@@ -28,6 +28,7 @@ function App() {
       });
 
     getImage();
+    changeBackgroundColor();
 
   }
 
@@ -56,7 +57,6 @@ function App() {
 
   useEffect(() => {
     getQuote();
-    changeBackgroundColor();
   }, [])
 
   return (
