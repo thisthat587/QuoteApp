@@ -4,9 +4,9 @@ import './App.css'
 function App() {
   const apiKey = 'TYpCCqTSucuKdn6+Pdng4Q==y2Q6YO1zJsf48yEH';
 
-  const [quote, setQuote] = useState('');
+  const [quote, setQuote] = useState('no');
   const [author, setAuthor] = useState('');
-  const [imageUrl, setImageUrl] = useState('https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=800&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  const [imageUrl, setImageUrl] = useState('no');
 
   const wordsArray = [
     "age", "alone", "amazing", "anger", "architecture", "art", "attitude", "beauty", "best",
@@ -20,10 +20,11 @@ function App() {
   ];
 
   const getQuote = () => {
+    setQuote('no');
     const index = Math.floor((Math.random() * (wordsArray.length - 1) + 1))
     console.log("length : " + wordsArray.length);
     console.log("index : " + index);
-    const word = wordsArray[index]
+    const word = wordsArray[index];
     console.log("word : " + word);
     fetch(`https://api.api-ninjas.com/v1/quotes?category=${word}`, {
       headers: {
@@ -60,6 +61,7 @@ function App() {
     fetch('https://source.unsplash.com/random/800x600')
       .then(response => {
         if (response.ok) {
+
           return response.url;
         }
         throw new Error('Failed to fetch image');
@@ -74,47 +76,54 @@ function App() {
   }, [])
 
   return (
-    <section class="px-4 lg:px-0">
-      <button class="bg-red-700 w-full h-10 text-red-700 mb-2 ">upside</button>
-      <div class="flex flex-col-reverse lg:flex-row lg:items-center">
-        <div class="w-full lg:w-1/2 lg:order-last">
-          <div class="lg:my-0 lg:px-4">
-            <h2 class="text-xl font-bold text-black sm:text-4xl lg:text-5xl">
-              {quote}
-            </h2>
-            <p class="mt-4 max-w-xl font-bold text-black leading-relaxed">
-              AUTHOR: {author}
-            </p>
-            <form action="#" method="POST" class="mt-8 max-w-xl">
-              <div class="flex flex-col sm:flex-row sm:items-center">
-                <div class="flex w-full max-w-sm items-end space-x-2"></div>
-              </div>
-            </form>
+    (quote == 'no') ? (
+      <div className="flex items-center justify-center mt-52">
+        <div className="border-t-8 border-black border-solid rounded-full animate-spin h-24 w-24"></div>
+      </div>
+    ) : (
+      <section className="px-4 lg:px-0">
+        {/* Content when isLoading is true */}
+        <button className="bg-red-700 w-full h-10 text-red-700 mb-2">upside</button>
+        <div className="flex flex-col-reverse lg:flex-row lg:items-center">
+          <div className="w-full lg:w-1/2 lg:order-last">
+            <div className="lg:my-0 lg:px-4">
+              <h2 className="text-xl font-bold text-black sm:text-4xl lg:text-5xl">
+                {quote}
+              </h2>
+              <p className="mt-4 max-w-xl font-bold text-black leading-relaxed">
+                AUTHOR: {author}
+              </p>
+              <form action="#" method="POST" className="mt-8 max-w-xl">
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  <div className="flex w-full max-w-sm items-end space-x-2"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 lg:ml-4">
+            {imageUrl && (
+              <img
+                className="h-auto lg:h-full w-full rounded-md object-cover"
+                src={imageUrl}
+                alt="Random Image from Unsplash"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
-        <div class="w-full lg:w-1/2 lg:ml-4">
-          {imageUrl && (
-            <img
-              class="h-auto lg:h-full w-full rounded-md object-cover"
-              src={imageUrl}
-              alt="Random Image from Unsplash"
-              loading="lazy"
-            />
-          )}
-        </div>
-      </div>
-      <button class="bg-red-700 w-full h-10 text-red-700 mt-2 ">upside</button>
-      <button
-        type="button"
-        class="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        onClick={getQuote}
-      >
-        Next Quote
-      </button>
-    </section>
+        <button className="bg-red-700 w-full h-10 text-red-700 mt-2">upside</button>
+        <button
+          type="button"
+          className="rounded-3xl bg-black mt-2 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          onClick={getQuote}
+        >
+          Next Quote
+        </button>
+      </section>
+    )
+  );
 
-
-  )
+  // )
 }
 
 export default App
