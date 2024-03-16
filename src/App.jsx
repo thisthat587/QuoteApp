@@ -8,9 +8,24 @@ function App() {
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('https://images.unsplash.com/photo-1708844897353-649da595a3f2?q=80&w=800&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 
+  const wordsArray = [
+    "age", "alone", "amazing", "anger", "architecture", "art", "attitude", "beauty", "best",
+    "birthday", "business", "car", "change", "communication", "computers", "cool", "courage",
+    "dad", "dating", "death", "design", "dreams", "education", "environmental", "equality",
+    "experience", "failure", "faith", "family", "famous", "fear", "fitness", "food", "forgiveness",
+    "freedom", "friendship", "funny", "future", "god", "good", "government", "graduation", "great",
+    "happiness", "health", "history", "home", "hope", "humor", "imagination", "inspirational",
+    "intelligence", "jealousy", "knowledge", "leadership", "learning", "legal", "life", "love",
+    "marriage", "medical", "men", "mom", "money", "morning", "movies", "success"
+  ];
 
-  const getQuote = async () => {
-    await fetch('https://api.api-ninjas.com/v1/quotes?category=success', {
+  const getQuote = () => {
+    const index = Math.floor((Math.random() * (wordsArray.length - 1) + 1))
+    console.log("length : " + wordsArray.length);
+    console.log("index : " + index);
+    const word = wordsArray[index]
+    console.log("word : " + word);
+    fetch(`https://api.api-ninjas.com/v1/quotes?category=${word}`, {
       headers: {
         'X-Api-Key': apiKey
       }
